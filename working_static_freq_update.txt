@@ -1,0 +1,45 @@
+from gnuradio import gr
+import pmt
+import numpy as np
+
+class channel_selector(gr.sync_block):
+    """
+    A GNU Radio block for selecting the farthest free channel based on binary input states
+    and dynamically sending the center frequency via message passing.
+    """
+    def __init__(self, base_freq=2.4e9, channel_spacing=1e6):
+        """
+        Initialize the block with base frequency and channel spacing.
+
+        Args:
+        - base_freq: The base frequency for channel 0.
+        - channel_spacing: The frequency spacing between adjacent channels.
+        """
+        gr.sync_block.__init__(self,
+            name="binary_states",
+            in_sig=[(np.int32, 8)],  # Input: 8-channel binary states
+            out_sig=None
+        )
+
+        self.base_freq = base_freq
+        self.channel_spacing = channel_spacing
+        
+        self.message_port_register_out(pmt.intern("freq"))
+
+    def work(self, input_items, output_items):
+        """
+        Process incoming data and select the farthest free channel.
+        """
+        # Assuming input_items[0] is a (N, 8) array for N samples of 8 channels
+        states = input_items[0]
+
+        #for state in states:
+        #   print("state", state)
+            
+        #msg = pmt.cons(pmt.PMT_NIL, pmt.from_long(index))
+        
+        msg = pmt.make_dict()
+        msg = pmt.dict_add(msg, pmt.intern("freq"), pmt.from_long(446006250+12500+12500))
+        self.message_port_pub(pmt.intern("freq"), msg)
+
+        return len(input_items[0])
