@@ -31,10 +31,9 @@ To check your configuration, try starting the gnuradio GUI with
 `gnuradio-companion`
 
 ### Installing gnuradio on macOS
-Download and install Radioconda by following the instructions at the link https://github.com/ryanvolz/radioconda
+Download and install [Radioconda](https://github.com/ryanvolz/radioconda) by following the instructions at the link 
 
-
-
-
-
-
+## Run
+Start by running
+`gnuradio-companion`
+and load [cognitive_transmitter.grc](NGN/cognitive_transmitter.grc) and [cognitive_receiver.grc](NGN/cognitive_receiver.grc)
