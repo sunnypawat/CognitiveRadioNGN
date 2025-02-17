@@ -3,7 +3,7 @@
 ### About
 This is the git repository for the Cognitive Radio Project for the NEXT GENERATION NETWORK class at UNITN
 
-This is a project developed by xxxxx, xxxxxx, and xxxxxx, as the exam for the Next Generation Network course at the University of Trento
+This is a project developed by Pawat Songkhopanit, Serhat Altay, and Håkon Grue, as the exam for the Next Generation Network course at the University of Trento
 
 ### Assignment
 - Expanding the lab experience on walkie-talkie, develop a cognitive walkie-talkie or WiFi transmission system
@@ -13,7 +13,7 @@ This is a project developed by xxxxx, xxxxxx, and xxxxxx, as the exam for the Ne
 
 ### Configuration
 - 2 USRPs (One for the transmitter and one for the receiver)
-- Computer (Linux) installed with gnuradio
+- Computer (Linux) with gnuradio installed
 
 ## Setup
 ### Installing gnuradio on Linux
